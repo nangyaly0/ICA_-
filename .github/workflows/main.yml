@@ -49,10 +49,10 @@ jobs:
 
       - name: Build the docker image
         run: |
-           docker build -f Dockerfile -t username/machine-learning-ica-1:${{ github.sha}}
+           docker build -f Dockerfile -t nangyaly0/machine-learning-ica-1:${{ github.sha}}
           
       - name: push Docker image
-        run: docker push username/machine-learning-ica-1:${{ github.sha}}
+        run: docker push nangyaly0/machine-learning-ica-1:${{ github.sha}}
 
 
       
