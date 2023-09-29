@@ -38,8 +38,11 @@ jobs:
         uses: actions/upload-artifact@v2
         with: 
           name: execution-log
-          path: main.txt
-    
+          path: main.log
+
+      - name: Test
+        run: |
+          pytest tests/test_regression_project.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html > test.log
       
 
 
