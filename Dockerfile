@@ -3,7 +3,7 @@ FROM python:3.11
 # set the working directory in the container
 WORKDIR /code
 
-COPY ICA_- .
+COPY . .
 
 RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
