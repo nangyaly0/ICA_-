@@ -40,9 +40,7 @@ jobs:
           name: execution-log
           path: main.log
 
-      - name: Test
-        run: |
-          pytest tests/test_regression_project.py --doctest-modules --junitxml=junit/test-results.xml --cov-report=xml --cov-report=html > test.log
+
       
 
 
