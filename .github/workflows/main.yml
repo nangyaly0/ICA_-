@@ -45,7 +45,7 @@ jobs:
           username: ${{ secrets.DOCKER_NAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          echo $password | docker login -u $username --password-stdin
+          echo ${{ env.password }} | docker login -u ${{ env.username }} --password-stdin
 
       - name: Build the docker image
         run: |
