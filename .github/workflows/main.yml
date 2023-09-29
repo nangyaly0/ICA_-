@@ -49,10 +49,21 @@ jobs:
 
       - name: Build the docker image
         run: |
-           docker build . -t alikhan0/machine-learning-ica-1:${{ github.sha}}
+           docker build . -t alikhan0/machine-learning-ica-1:latest
           
       - name: push Docker image
-        run: docker push alikhan0/machine-learning-ica-1:${{ github.sha}}
+        run: docker push alikhan0/machine-learning-ica-1:latest
+
+      - name: Configure AWS credentials
+        run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} && aws configure set region ${{ secrets.AWS_REGION }}
+
+      - name: Deploy to ECS
+        run: |
+          # Replace these placeholders with your ECS cluster and service names
+          ECS_CLUSTER_NAME=arn:aws:ecs:us-east-1:251729430924:cluster/ica
+          ECS_SERVICE_NAME=arn:aws:ecs:us-east-1:251729430924:service/ica/ica-service
+
+          aws ecs update-service --cluster $ECS_CLUSTER_NAME --service $ECS_SERVICE_NAME --force-new-deployment
 
 
       
