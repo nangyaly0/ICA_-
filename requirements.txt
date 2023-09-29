@@ -1,2 +1,4 @@
 tensorflow
 numpy
+pytest
+pytest-cov
