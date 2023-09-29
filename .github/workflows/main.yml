@@ -52,12 +52,7 @@ jobs:
            docker build . -t alikhan0/machine-learning-ica-1:${{ github.sha}}
           
       - name: push Docker image
-      env:
-          username: ${{ secrets.DOCKER_NAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-        run: |
-          echo ${{ env.password }} | docker login -u ${{ env.username }} --password-stdin
-          docker push alikhan0/machine-learning-ica-1:${{ github.sha}}
+        run: docker push alikhan0/machine-learning-ica-1:${{ github.sha}}
 
 
       
