@@ -41,25 +41,19 @@ jobs:
           path: main.log
 
       - name: Log in to Docker Hub
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
-        with:
+        uses: actions/checkout@v4
+        env:
           username: ${{ secrets.DOCKER_NAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-        with:
-          images: alikhan0/machine-learning-ica-1
-      
-      - name: Build and push Docker image
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+        run: |
+          docker login -u $username -p $password
+
+        - name: Build the docker image
+          run: |
+           docker build -f Dockerfile -t username/machine-learning-ica-1:${{ github.sha}}
+          
+        - name: push Docker image
+          run: docker push username/machine-learning-ica-1:${{ github.sha}}
 
 
       
