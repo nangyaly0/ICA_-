@@ -35,7 +35,7 @@ jobs:
           python main.py
       
       - name: log
-        uses: actions/upload-artifact@v23
+        uses: actions/upload-artifact@v3
         with: 
           name: Saving logs
           path: main.log
