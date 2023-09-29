@@ -32,13 +32,13 @@ jobs:
 
       - name: Build
         run: |
-          python main.py > main1.log
+          python main.py > main.log
       
       - name: log
         uses: actions/upload-artifact@v2
         with: 
           name: execution-log
-          path: main1.log
+          path: main.log
     
       
 
