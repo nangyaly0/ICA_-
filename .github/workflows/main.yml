@@ -32,7 +32,7 @@ jobs:
 
       - name: Build and Log
         run: |
-          python main.py 
+          python main.py > main.log
 
       
       
