@@ -26,6 +26,7 @@ Python installed on your local development environment.
 AWS CLI and Docker installed on your local development environment.
 Access to create GitHub Actions in your GitHub repository.
 3. Project Structure <a name="project-structure"></a>
+
 /
 |-- .github/
 |   |-- workflows/
@@ -45,7 +46,7 @@ Access to create GitHub Actions in your GitHub repository.
 |-- test.log                     # test_regresssion_project.py log file
 |-- README.md                    # This README file
 |-- LICENSE                      # License file (customize as needed)
-
+/
 4. Getting Started <a name="getting-started"></a>
 Follow these steps to set up and deploy your machine learning application:
 
